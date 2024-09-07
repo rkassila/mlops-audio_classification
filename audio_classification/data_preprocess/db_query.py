@@ -3,15 +3,19 @@ from google.cloud import storage
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
+import yaml
 
-# PostgreSQL connection settings
-pg_conn_params = {
-    'dbname': 'postgres',
-    'user': 'dataengineer',
-    'password': 'postgre-challenge-waTpof',
-    'host': '34.78.172.238',
-    'port': '5432'
-}
+# Function to load config from a YAML file
+def load_config(yaml_file):
+    with open(yaml_file, 'r') as file:
+        config = yaml.safe_load(file)
+    return config
+
+# Load the config from the YAML file
+config = load_config('config/gcs_config.yaml')
+
+# Extract PostgreSQL connection settings
+pg_conn_params = config['postgresql']
 
 
 def query_postgres(dataset_name):
