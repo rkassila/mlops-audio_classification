@@ -1,11 +1,11 @@
-from scripts.gcs_utils import stream_and_upload_parquet, upload_parquet_to_gcs
-from scripts.config_loader import load_datasets_config, load_gcs_config
-from scripts.datasets_utils import (
+from audio_classification.data_import.gcs_utils import stream_and_upload_parquet, upload_parquet_to_gcs
+from audio_classification.data_import.config_loader import load_datasets_config, load_gcs_config
+from audio_classification.data_import.datasets_utils import (
     load_dataset_from_subset,
     fetch_parquet_file_urls,
     get_parquet_file_metadata
 )
-from scripts.postgresql_utils import (
+from audio_classification.data_import.postgresql_utils import (
     get_postgresql_connection,
     initialize_metadata_tables,
     check_existing_dataset,

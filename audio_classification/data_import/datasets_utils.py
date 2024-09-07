@@ -2,7 +2,6 @@ import requests
 import pyarrow.parquet as pq
 from datasets import load_dataset
 from io import BytesIO
-import pandas as pd
 
 
 def load_dataset_from_subset(dataset_config):
