@@ -15,9 +15,12 @@ Serve model via FastAPI, monitor performance with Prometheus/Grafana, track and 
 ## Technology Stack
 
 - **Python**
-- **Hugging Face `datasets`:**
-- **Google Cloud Storage (GCS):**
-- **PostgreSQL on Google Cloud SQL:**
+- **Hugging Face `datasets`**
+- **Google Cloud Storage (GCS)**
+- **PostgreSQL on Google Cloud SQL**
+- **MLflow** in progress
+- **Prometheus** in progress
+- **Grafana** in progress
 
 
 ## Setup and Environmental Requirements
