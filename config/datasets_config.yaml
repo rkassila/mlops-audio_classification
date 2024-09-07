@@ -1,0 +1,30 @@
+datasets:
+  - #name: "wikimedia/wikipedia"
+    #subset: "20231101.en"
+    #split: "train"
+    #gcs_path: "wikipedia/20231101/en/"
+    #table_name: "20231101.en"
+    #description: "20231101 of wikipedia"
+
+  - #name: "wikimedia/wit_base"
+    #split: "train"
+    #table_name: "wit_base"
+    #files_to_download: 10
+    #files:
+    #  - "train-00000-of-00330.parquet"
+    #  - "train-00001-of-00330.parquet"
+    #  - "train-00002-of-00330.parquet"
+    #  - "train-00003-of-00330.parquet"
+    #  - "train-00004-of-00330.parquet"
+    #  - "train-00005-of-00330.parquet"
+    #  - "train-00006-of-00330.parquet"
+    #  - "train-00007-of-00330.parquet"
+    #  - "train-00008-of-00330.parquet"
+    #  - "train-00009-of-00330.parquet"
+    #description: "wit_base of wikipedia"
+
+  - name: "PolyAI/minds14"
+    subset: "en-US"
+    split: "train"
+    table_name: "minds14"
+    description: "PolyAI minds14"

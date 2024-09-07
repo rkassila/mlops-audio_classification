@@ -1,0 +1,6 @@
+__pycache__/
+.DS_Store
+config/gcs_config.yaml
+.venv/
+
+notebooks

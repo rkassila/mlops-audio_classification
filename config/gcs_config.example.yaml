@@ -1,0 +1,10 @@
+gcs:
+  bucket_name: "YOUR BUCKET NAME"
+  region: "YOUR REGION"
+
+postgresql:
+  host: "YOUR POSTGRESQL CLIENT" #34.78.172.238
+  port: "PORT" #5432
+  dbname: "DATABASE NAME" #postgres
+  user: "USER NAME" #dataengineer
+  password: "PASSWORD" #postgre-challenge-waTpof
