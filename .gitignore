@@ -4,3 +4,7 @@ config/gcs_config.yaml
 .venv/
 
 notebooks
+
+local_registry/
+mlruns.db
+mlruns/

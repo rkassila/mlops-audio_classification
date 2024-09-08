@@ -4,20 +4,22 @@ from sklearn.model_selection import train_test_split
 from audio_features import preprocess_audio
 
 class AudioDataset(Dataset):
-    def __init__(self, df, target_length=100, n_mfcc=13):
+    def __init__(self, df, target_length=128, n_mels=40):
         self.paths = df['path'].values
         self.labels = df['intent_class'].values
         self.target_length = target_length
-        self.n_mfcc = n_mfcc
+        self.n_mels = n_mels
 
     def __len__(self):
         return len(self.paths)
 
     def __getitem__(self, idx):
         audio_path = self.paths[idx]
-        mfcc_features = preprocess_audio(audio_path, target_length=self.target_length, n_mfcc=self.n_mfcc)
+        mel_spectrogram_features = preprocess_audio(audio_path, target_length=self.target_length, n_mels=self.n_mels)
         label = torch.tensor(self.labels[idx], dtype=torch.long)
-        return mfcc_features, label
+        return mel_spectrogram_features, label
+
+
 
 def split_dataset(pd_df):
     # Split the data into training and testing sets
