@@ -9,3 +9,12 @@ numpy<2.0
 transformers
 evaluate
 soundfile
+
+fastapi
+uvicorn
+torch
+soundfile
+prometheus_client
+prometheus_fastapi_instrumentator
+scikit-learn
+mlflow
