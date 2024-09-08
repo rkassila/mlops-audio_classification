@@ -20,7 +20,6 @@ class AudioDataset(Dataset):
         return mel_spectrogram_features, label
 
 
-
 def split_dataset(pd_df):
     # Split the data into training and testing sets
     train_df, test_df = train_test_split(pd_df, test_size=0.2, random_state=42)
