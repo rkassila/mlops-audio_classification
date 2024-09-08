@@ -8,3 +8,5 @@ notebooks
 local_registry/
 mlruns.db
 mlruns/
+
+documents/

@@ -59,7 +59,7 @@ def create_train_test_split(pd_df):
 # Main function to load, prepare, and split the dataset
 def main():
     # Specify the dataset name
-    dataset_name = 'minds14'  # Replace with your dataset name
+    dataset_name = 'minds14'
 
     # Load and prepare the data
     pd_df = load_and_prepare_data(dataset_name)

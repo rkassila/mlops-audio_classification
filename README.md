@@ -19,10 +19,43 @@ Serve model via FastAPI, monitor performance with Prometheus/Grafana, track and 
 - **Google Cloud Storage (GCS)** OK
 - **PostgreSQL on Google Cloud SQL** OK
 - **MLflow** OK
-- **FastAPI** in progress
-- **Prometheus** in progress
-- **Grafana** in progress
+- **FastAPI** OK
+- **Prometheus** OK
+- **Grafana** OK
 
+## Running Prometheus and Grafana with Docker
+
+This guide provides commands to quickly run Prometheus and Grafana using Docker.
+
+### Commands to Run Prometheus and Grafana
+
+1. **Pull the Docker Images**
+
+   First, pull the latest Docker images for Prometheus and Grafana:
+
+```bash
+   docker pull prom/prometheus:latest
+   docker pull grafana/grafana:latest
+```
+
+### Run Prometheus
+```bash
+docker run -d --name prometheus -p 9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
+```
+### Run Grafana
+```bash
+docker run -d --name grafana -p 3000:3000 grafana/grafana:latest
+```
+
+### Access the Services
+- Prometheus: http://localhost:9090
+- Grafana: http://localhost:3000 (default username: admin, default password: admin)
+
+### Stop and remove Containers
+```bash
+docker stop prometheus grafana
+docker rm prometheus grafana
+```
 
 ## Setup and Environmental Requirements
 

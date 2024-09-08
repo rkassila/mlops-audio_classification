@@ -1,9 +1,6 @@
-import os
-import time
 import torch
 import mlflow
 from mlflow.tracking import MlflowClient
-import pickle
 import yaml
 
 # Path to your config file
@@ -21,14 +18,13 @@ mlflow_config = load_mlflow_config()
 MLFLOW_TRACKING_URI = mlflow_config['tracking_uri']
 MLFLOW_EXPERIMENT = mlflow_config['experiment_name']
 MLFLOW_MODEL_NAME = mlflow_config['model_name']
-LOCAL_REGISTRY_PATH = mlflow_config['local_registry_path']  # Added local registry path
 
 # Set MLflow tracking URI globally
 mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
 def save_results(params: dict, metrics: dict) -> None:
     """
-    Persist params & metrics to MLflow and locally.
+    Persist params & metrics to MLflow.
     """
     # Log to MLflow
     if params is not None:
@@ -152,8 +148,16 @@ def transition_model(client: MlflowClient, current_stage: str, new_stage: str):
         print(f"❌ Error while transitioning model: {e}")
 
 
-import mlflow
-from mlflow.tracking import MlflowClient
+def fetch_latest_model_version():
+    """
+    Fetch the current model version from MLflow.
+    """
+    client = MlflowClient()
+    versions = client.get_latest_versions(name="your-model-name", stages=["Production"])  # or "Staging"
+    if versions:
+        return versions[0].version
+    return None
+
 
 def mlflow_run(func):
     """

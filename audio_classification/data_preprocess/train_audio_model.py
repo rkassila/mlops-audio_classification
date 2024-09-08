@@ -3,9 +3,9 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import accuracy_score, mean_absolute_error
 from data_preparation import main
-from mlflow_utils import mlflow_run, save_model, save_results, mlflow_transition_model_if_better
+from mlflow_utils import save_model, save_results, mlflow_transition_model_if_better
 
-# Define a CNN for audio classification
+
 class AudioCNN(nn.Module):
     def __init__(self, input_height, input_width, num_classes):
         super(AudioCNN, self).__init__()
@@ -29,7 +29,6 @@ class AudioCNN(nn.Module):
         return x
 
 
-# Training function (no logging inside the loop)
 def train_model(model, criterion, optimizer, train_loader, device):
     model.train()
     total_loss = 0
@@ -76,7 +75,6 @@ def evaluate_model(model, criterion, test_loader, device):
     return total_loss / len(test_loader), accuracy, mae
 
 
-# Main training function that logs only after all epochs are completed
 def main_training():
     # Load preprocessed data
     X_train, X_test, y_train, y_test = main()
@@ -99,7 +97,6 @@ def main_training():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-    # Train for all epochs without logging each epoch
     for epoch in range(num_epochs):
         train_loss, train_acc = train_model(model, criterion, optimizer, train_loader, device)
         print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Train Accuracy: {train_acc:.4f}")
@@ -108,12 +105,12 @@ def main_training():
     test_loss, test_acc, test_mae = evaluate_model(model, criterion, test_loader, device)
     print(f"Test Loss: {test_loss:.4f}, Test Accuracy: {test_acc:.4f}, Test MAE: {test_mae:.4f}")
 
-    # Log metrics to MLflow only after all epochs are done
+    # Log metrics to MLflow
     metrics = {"Train Loss": train_loss, "Train Accuracy": train_acc,
                "Test Loss": test_loss, "Test Accuracy": test_acc, "Test MAE": test_mae}
     save_results(params=None, metrics=metrics)
 
-    # Save the model only after all epochs
+    # Save the model
     save_model(model)
 
     # After training, transition the model to `Staging` only if it's better
