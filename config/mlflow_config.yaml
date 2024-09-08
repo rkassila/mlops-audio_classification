@@ -1,0 +1,5 @@
+mlflow:
+  tracking_uri: "http://127.0.0.1:5000"
+  experiment_name: "your-experiment-name"
+  model_name: "your-model-name"
+  local_registry_path: "./local_registry"
