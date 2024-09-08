@@ -19,6 +19,7 @@ Serve model via FastAPI, monitor performance with Prometheus/Grafana, track and 
 - **Google Cloud Storage (GCS)** OK
 - **PostgreSQL on Google Cloud SQL** OK
 - **MLflow** OK
+- **FastAPI** in progress
 - **Prometheus** in progress
 - **Grafana** in progress
 
