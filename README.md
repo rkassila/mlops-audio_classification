@@ -25,7 +25,7 @@ Serve model via FastAPI, monitor performance with Prometheus/Grafana, track and 
 
 ## Running Prometheus and Grafana with Docker
 
-This guide provides commands to quickly run Prometheus and Grafana using Docker.
+This guide provides commands to run Prometheus and Grafana using Docker.
 
 ### Commands to Run Prometheus and Grafana
 
